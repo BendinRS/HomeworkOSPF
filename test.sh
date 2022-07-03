@@ -1,2 +1,2 @@
 vagrant up
-ansible-playbook ./roles/ospf/tests/test.yml
+ansible-playbook ./main.yml
