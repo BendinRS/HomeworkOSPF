@@ -67,8 +67,6 @@ MACHINES = {
 
             end
 
-        end
-
     end
 
 end
