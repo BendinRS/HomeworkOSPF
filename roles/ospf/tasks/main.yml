@@ -1,39 +1,22 @@
 ---
 # tasks file for ospf
 
-  # - name: install base tools
-  #   yum:
-  #     name:
-  #       - tcpdump
-  #       - net-tools
-  #   state: present
+  - name: install base tools
+    yum:
+      name:
+        - tcpdump
+        - net-tools
+    state: present
 
-  # - name: Install frr.rpm
-  #   ansible.builtin.yum:
-  #     name: https://github.com/FRRouting/frr/releases/download/frr-5.0.1/frr-5.0.1-2018070501.el7.centos.x86_64.rpm
-  #   state: present
+  - name: Install frr.rpm
+    ansible.builtin.yum:
+      name: https://github.com/FRRouting/frr/releases/download/frr-5.0.1/frr-5.0.1-2018070501.el7.centos.x86_64.rpm
+    state: present
 
 
-  # - name: Extract file
-  #   fetch:
-  #     src: /etc/frr/daemons
-  #     dest: ./roles/ospf/files/
-  #   when: (ansible_hostname == "router1")
+  - name: Extract file
+    fetch:
+      src: /etc/frr/daemons
+      dest: ./roles/ospf/files/
+    when: (ansible_hostname == "router1")
 
-  - name: disable default route
-    lineinfile:
-      dest: /etc/sysconfig/network-scripts/ifcfg-eth0
-      line: DEFROUTE=no
-    when: (ansible_hostname == "centralServer")
-
-  - name: add default gateway for centralServer
-    lineinfile:
-      dest: /etc/sysconfig/network-scripts/ifcfg-eth1
-      line: GATEWAY=192.168.10.1
-    when: (ansible_hostname == "centralServer")
-
-  - name: copy route_inetRouter
-    template:
-      src: ./files/inetRouter
-      dest: /etc/sysconfig/network-scripts/route-eth1
-    when: (ansible_hostname == "inetRouter")
