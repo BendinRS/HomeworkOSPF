@@ -4,8 +4,8 @@
 - name: install base tools
   yum:
     name:
-    - tcpdump
-    - net-tools
+      - tcpdump
+      - net-tools
   state: present
 
 - name: Install frr.rpm
