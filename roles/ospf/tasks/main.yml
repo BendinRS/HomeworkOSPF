@@ -37,7 +37,7 @@
   - name: Copy frr.conf file to router1
     copy:
        src: ./files/frr.conf1.j2
-       dest: /etc/frr/frr.conf
+       dest: /etc/frr/frr1.conf
        owner: frr
        group: frr
        mode: 0640
