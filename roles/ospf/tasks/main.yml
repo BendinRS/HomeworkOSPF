@@ -3,7 +3,7 @@
 
   - name: Copy rpm file to servers
     copy:
-       src: ./roles/ospf/files/frr.rpm
+       src: ../roles/files/frr.rpm
        dest: /home/frr.rpm
 
   - name: install base tools
