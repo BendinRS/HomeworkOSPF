@@ -3,8 +3,8 @@
 
 #Router1
 
-hostname1: "router1"
-name_int1_1: "eth1"
+hostname1: router1
+name_int1_1: eth1
 description1_1: "r1-r2"
 ip_addr1_1: "10.0.10.1/30"
 name_int1_2: "eth2"
