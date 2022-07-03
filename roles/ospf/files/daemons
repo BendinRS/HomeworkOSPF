@@ -37,9 +37,9 @@
 watchfrr_enable=yes
 watchfrr_options=("-b_" "-r/usr/lib/frr/frr_restart_%s" "-s/usr/lib/frr/frr_start_%s" "-k/usr/lib/frr/frr_stop_%s")
 #
-zebra=no
+zebra=yes
 bgpd=no
-ospfd=no
+ospfd=yes
 ospf6d=no
 ripd=no
 ripngd=no

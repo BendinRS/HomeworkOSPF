@@ -1,7 +1,7 @@
 ---
 # tasks file for ospf
 
-  - name: Copy rpm file to servers
+  - name: Copy rpm file to routers
     copy:
        src: ./files/frr.rpm
        dest: /home/frr.rpm
@@ -14,8 +14,36 @@
         - net-tools
         - /home/frr.rpm
 
-  - name: Extract file
-    fetch:
-      src: /etc/frr/daemons
-      dest: ./files/daemons
-    when: (ansible_hostname == "router1")
+  # - name: Extract file
+  #   fetch:
+  #     src: /etc/frr/daemons
+  #     dest: ./files/daemons
+  #   when: (ansible_hostname == "router1")
+
+  - name: set up forward packages across routers
+    sysctl:
+      name: net.ipv4.conf.all.forwarding
+      value: '1'
+      state: present
+
+  - name: Copy frr.conf file to routers
+    copy:
+       src: ./files/daemons
+       dest: /etc/frr/daemons
+       owner: frr
+       group: frr
+       mode: 0640
+
+  - name: Copy frr.conf file to routers
+    copy:
+       src: ./files/frr.conf.j2
+       dest: /etc/frr/frr.conf
+       owner: frr
+       group: frr
+       mode: 0640
+
+  - name: restart FRR
+    service:
+      name: frr
+      state: restarted
+      enabled: true
