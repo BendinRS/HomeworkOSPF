@@ -35,16 +35,16 @@
        mode: 0640
 
   - name: Copy frr.conf file to router1
-    copy:
+    template:
        src: ./files/frr.conf1.j2
-       dest: /etc/frr/frr1.conf
+       dest: /etc/frr/frr.conf
        owner: frr
        group: frr
        mode: 0640
     when: (ansible_hostname == "router1")
 
   - name: Copy frr.conf file to router2
-    copy:
+    template:
        src: ./files/frr.conf2.j2
        dest: /etc/frr/frr.conf
        owner: frr
@@ -53,7 +53,7 @@
     when: (ansible_hostname == "router2")
 
   - name: Copy frr.conf file to router3
-    copy:
+    template:
        src: ./files/frr.conf3.j2
        dest: /etc/frr/frr.conf
        owner: frr
