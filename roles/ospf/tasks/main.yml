@@ -17,5 +17,5 @@
   - name: Extract file
     fetch:
       src: /etc/frr/daemons
-      dest: ./roles/ospf/files/
+      dest: ./roles/ospf/files/daemons
     when: (ansible_hostname == "router1")
