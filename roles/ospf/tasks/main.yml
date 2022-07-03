@@ -13,3 +13,4 @@
   fetch:
     src: /etc/frr/daemons
     dest: ./roles/ospf/files/
+  when: (ansible_hostname == "router1")
