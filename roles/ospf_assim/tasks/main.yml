@@ -26,6 +26,12 @@
       value: '1'
       state: present
 
+  - name: fix mode assim routing
+    sysctl:
+      name: net.ipv4.conf.all.rp_filter
+      value: '0'
+      state: present
+
   - name: Copy frr.daemons file to routers
     copy:
        src: ./files/daemons
