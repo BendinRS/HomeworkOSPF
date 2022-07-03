@@ -1,11 +1,11 @@
 ---
 # tasks file for ospf
-- name: install base tools
-  yum:
-    name:
-    - tcpdump
-    - net-tools
-  state: present
+# - name: install base tools
+#   yum:
+#     name:
+#     - tcpdump
+#     - net-tools
+#   state: present
 
 # - name: Install frr.rpm
 #   ansible.builtin.yum:
