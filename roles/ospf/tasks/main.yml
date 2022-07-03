@@ -1,6 +1,4 @@
 ---
-# tasks file for ospf
-
   - name: install base tools
     yum:
       state: present
