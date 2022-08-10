@@ -1,5 +1,16 @@
 ---
-- hosts: all
-  become: true
-  roles:
-    - ospf
+- name: Router1 Install settins for OSPF
+  hosts: router1
+  become: yes
+  gather_facts: false
+  tasks:
+
+  - name: install base tools
+    yum:
+      state: present
+      update_cache: true
+      name:
+        - vim
+        - traceroute
+        - tcpdump
+        - net-tools
