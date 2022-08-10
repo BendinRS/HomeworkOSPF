@@ -1,6 +1,6 @@
 MACHINES = {
 	:router1 => {
-		:box_name => "centos7",
+		:box_name => "centos/7",
 		:vm_name => "router1",
 		:net => [
 			{ip: '10.0.10.1', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "r1-r2"},
